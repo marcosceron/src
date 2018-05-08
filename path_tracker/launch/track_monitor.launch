@@ -1,0 +1,7 @@
+<launch>
+	<node name="stageros" pkg="stage_ros" type="stageros" args="$(find path_tracker)/world/create_hokuyo.world"/>
+	<node name="robot_ctrl" pkg="tangent" type="tangent_node" args="6.0 13.0" output="screen"/>
+	<node name="path_monitor" pkg="path_tracker" type="path_tracker_node" args="$(find path_tracker)/world/map"/>
+	<node name="console" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find path_tracker)/console/setup.perspective" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find path_tracker)/rviz/setup.rviz" />
+</launch>
