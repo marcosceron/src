@@ -180,7 +180,7 @@ int main(int argc, char** argv)
 		v2=0;
 		v1=4.0;	
 	}
-	
+	// Comentário que só deve aparecer no segundo trabalho
 	//ROS_INFO("X: %lg\n, Y:%lg", current_pose.pose.pose.position.x, current_pose.pose.pose.position.y);
 	
         // Envia Sinal de Velocidade
