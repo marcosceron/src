@@ -1,0 +1,14 @@
+<launch>
+	<!--  Executa o primeiro simulador  -->
+<node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+<!--  Executa o publisher  -->
+<node pkg="rostopic" name="publisher" type="rostopic" 
+ args="pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'"/>
+<!--  Troca a caneta -->
+<node pkg="rosservice" name="changePen" type="rosservice" args="call /turtle1/set_pen 255 0 0 10 0"/>
+	<!-- Cria outra tartaruga -->
+	<node pkg="rosservice" name="navaTurtle" type="rosservice" 
+		args="call /spawn 8 5 3.0 'C3_Furg'"/>
+	<!--  Define um parâmetro -->
+	<param name="teste" value="C3_FURG" />
+</launch>
